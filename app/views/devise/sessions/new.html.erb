@@ -1,0 +1,53 @@
+<div class="px-4 py-5 px-md-5 text-center text-lg-start" style="background-color: hsl(0, 0%, 96%)">
+    <div class="container">
+      <div class="row gx-lg-5">
+        <div class="col-lg-6 mb-5 mb-lg-0">
+          <h1 class="my-5 display-3 fw-bold ls-tight">
+           Log in here
+          </h1>
+      </div>
+
+        <div class="col-lg-6 mb-5 mb-lg-0 align-items-center">
+          <div class="card">
+            <div class="card-body py-5 px-md-5 ">
+             <%= form_for(resource, as: resource_name,url: session_path(resource_name), html: { class: "mb-3" }) do |f|%>
+
+                <div class="form-outline mb-4">
+                 <%= f.label :email, class: "control-label col-sm-3" %><br>
+                 <%= f.email_field :email, class: "form-control"  %>
+                  <%= display_errors(resource, :email) %>
+                </div>
+
+                <div class="form-outline mb-4">
+                   <%= f.label :password, class: "form-label" %><br>
+                   <%= f.password_field :password, class: "form-control" %>
+                    <%= display_errors(resource, :password) %>
+                </div>
+
+               <div class="form-check d-flex mb-4">
+               <input class="form-check-input me-2" type="checkbox" value="" id="form2Example33" checked />
+               <label class="form-check-label" for="form2Example33">
+               Remember me
+               </label>
+               </div>
+
+                <div class="actions">
+                 <%= f.submit "Log in", class: "btn btn-danger col-md-3" %>
+                </div> <br>
+
+                <div class="action">
+                <p>Don't have an account?</p> 
+                </div>
+                <%= render "devise/shared/links" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="d-flex flex-md-row text-center justify-content-between py-4 px-4 bg-primary">   
+    <div class="text-white mb-3 mb-md-0">
+      Copyright © 2020. All rights reserved.
+    </div>  
+</div>

@@ -1,0 +1,24 @@
+
+
+<h1>Welcome to QuizMe project</h1>
+<!-- app/views/dashboard/index.html.erb -->
+  <h1></h1>
+
+
+<p>This is your dashboard.</p>
+<div class="card mb-3" style="max-width: 540px;">
+<%@user.each do |user|%>
+  <div class="row g-0">
+    <div class="col-md-4">
+      <%= image_tag "download.jpeg" class="img-fluid rounded-start"%>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">Welcome, <%= @user.username %> </h5>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+      </div>
+    </div>
+  </div>
+  <%end%>
+</div>
