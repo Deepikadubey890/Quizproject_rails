@@ -2,6 +2,7 @@ class DashboardController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @user = current_user
+   @users = User.all
+  render 'home/index'
   end
 end

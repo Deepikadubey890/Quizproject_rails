@@ -13,5 +13,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   # Add a route for the DashboardController
+  # get 'member/index'=> 'member#index', as: 'member'
+  get 'member/:id' => 'members#show', as: 'member'
   get '/dashboard', to: 'dashboard#index', as: 'dashboard'
 end

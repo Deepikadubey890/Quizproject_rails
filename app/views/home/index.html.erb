@@ -1,24 +1,38 @@
 
-
 <h1>Welcome to QuizMe project</h1>
-<!-- app/views/dashboard/index.html.erb -->
-  <h1></h1>
 
-
-<p>This is your dashboard.</p>
-<div class="card mb-3" style="max-width: 540px;">
-<%@user.each do |user|%>
-  <div class="row g-0">
-    <div class="col-md-4">
-      <%= image_tag "download.jpeg" class="img-fluid rounded-start"%>
+<div class="col-lg-10 mx-auto mt-5">
+  <!-- Debugging statement to inspect @users -->
+ <div class="row mt-4 mb-4">
+   <div class="card-body">
+     <h3>Search hello Username </h3>
+     <%= search_form_for @q, url: root_path do |form| %>
+     <div class="input-group mb-3">
+      <%= form.search_field :username_cont, class: "form-control",placeholder: "Search by username", area: {label: "Search by username",describedby: "button-addon2"}%>
+      <%= form.submit "search", class: "btn btn-primary", id: "button-addon2"%>
     </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title">Welcome, <%= @user.username %> </h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+    <%end%>
+  </div>
+ </div>
+
+  <div class="row mt-4 mb-4">
+    <% @users.each do |user|%>
+   
+    <div class="col-lg-3 mb-3 mt-3">
+      <div class="card text-center shadow" style="min-height: 300px;">
+        <div class="card-body">
+           <%= image_tag "download.jpeg",style: "width: 90px; border-radius: 10px;" %>
+           <div class="user-info">
+            <h5 style="color: red;"> <%= user.email %></h5>
+            <p class="lead"><%= user.username %></p>
+            <%= link_to "View Profile",member_path(user), class: "btn btn-primary"%>
+           </div>
+        </div>
       </div>
     </div>
+    <% end %>
+   
   </div>
-  <%end%>
+  <%= will_paginate @users, renderer: BootstrapPagination::Rails %>
 </div>
+
